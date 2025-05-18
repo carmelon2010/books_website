@@ -2,3 +2,4 @@ googlesearch-python
 Flask
 psycopg2
 Gunicorn 
+Django

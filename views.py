@@ -21,7 +21,7 @@ def profile():
     global names
     args = request.args
     name = args.get('name')
-    if name == 'carmel':
+    if name == 'developer':
         if request.method == 'POST':
             user_input = request.form.get('delete')
             print(f"Received input: {user_input}")  # DEBUG
@@ -39,4 +39,4 @@ def profile():
 
 @views.route('/developer-mode')
 def developer_mode():
-    return redirect(url_for('views.profile', name='carmel'))
+    return redirect(url_for('views.profile', name='developer'))

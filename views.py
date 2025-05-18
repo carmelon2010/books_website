@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from docs.api import find_book_link
+from api import find_book_link
 from sql_connector import add_book, delete_book, load_books
 
 

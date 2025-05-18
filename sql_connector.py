@@ -6,13 +6,13 @@ cur = con.cursor()
 
 def add_book(name):
     global con, cur
-    cur.execute("CREATE TABLE IF NOT EXISTS books (name text, url text);")
-    psycopg2.extras.execute_batch(cur, "INSERT INTO books (name, url) VALUES (%s, %s)", [name])
+    cur.execute("CREATE TABLE IF NOT EXISTS books (name text, url text, user text);")
+    psycopg2.extras.execute_batch(cur, "INSERT INTO books (name, url, user) VALUES (%s, %s, %s)", [name])
     con.commit()
 
 def load_books():
     global con, cur
-    cur.execute("CREATE TABLE IF NOT EXISTS books (name text, url text);")
+    cur.execute("CREATE TABLE IF NOT EXISTS books (name text, url text, user text);")
     cur.execute("SELECT * FROM books;")
     rows = cur.fetchall()
     con.commit()

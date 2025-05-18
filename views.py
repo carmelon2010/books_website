@@ -10,7 +10,7 @@ def home():
     if request.method == 'POST':
         user_input = request.form['user_input']
         print(f"Received input: {user_input}")  # DEBUG
-        names.append([user_input,find_book_link(user_input), 'all'])
+        names.append([user_input,find_book_link(user_input)])
         add_book([user_input,find_book_link(user_input)])
         load_books()
         return redirect(url_for('views.home'))  # Prevent resubmission
@@ -28,14 +28,6 @@ def profile():
             delete_book(names[int(user_input)][0])
             names.pop(int(user_input))
         return render_template('developer.html', name=names)
-    else:
-        if request.method == 'POST':
-            user_input = request.form['user_input']
-            print(f"Received input: {user_input}")  # DEBUG
-            names.append([user_input, find_book_link(user_input), name])
-            add_book([user_input, find_book_link(user_input)])
-            load_books()
-        return render_template('index.html', name=[sublist for sublist in names if sublist and sublist[-1] == name])
 
 @views.route('/developer-mode')
 def developer_mode():

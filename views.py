@@ -16,7 +16,7 @@ def home():
         add_book([user_input,find_book_link(user_input)])
         load_books()
         return redirect(url_for('views.home'))  # Prevent resubmission
-    return render_template('book_website/Templates/index', name=names)
+    return render_template('Templates/index', name=names)
 
 @views.route('/profile', methods=['GET', 'POST'])
 def profile():

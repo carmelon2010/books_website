@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from api import find_book_link
 from sql_connector import add_book, delete_book, load_books
 
-
 views = Blueprint(__name__, 'views')
 names = load_books()
 @views.route('/', methods=['GET', 'POST'])

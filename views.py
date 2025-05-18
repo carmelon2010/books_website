@@ -18,10 +18,10 @@ def home():
 
 @views.route('/profile', methods=['GET', 'POST'])
 def profile():
+    global names
     args = request.args
     name = args.get('name')
     if name == 'carmel':
-        global names
         if request.method == 'POST':
             user_input = request.form.get('delete')
             print(f"Received input: {user_input}")  # DEBUG
@@ -29,7 +29,6 @@ def profile():
             names.pop(int(user_input))
         return render_template('developer.html', name=names)
     else:
-        global names
         if request.method == 'POST':
             user_input = request.form['user_input']
             print(f"Received input: {user_input}")  # DEBUG

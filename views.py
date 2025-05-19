@@ -20,12 +20,11 @@ def home():
 def profile():
     args = request.args
     name = args.get('name')
-    if name == 'carmel':
+    if name == 'developer':
         global names
         if request.method == 'POST':
             if 'delete' in request.form.keys():
                 user_input = request.form.get('delete')
-                print(f"Received input: {user_input}")  # DEBUG
                 delete_book(names[int(user_input)][0])
                 names.pop(int(user_input))
             else:
@@ -35,4 +34,4 @@ def profile():
 
 @views.route('/developer-mode')
 def developer_mode():
-    return redirect(url_for('views.profile', name='carmel'))
+    return redirect(url_for('views.profile', name='developer'))

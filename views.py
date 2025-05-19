@@ -23,10 +23,13 @@ def profile():
     if name == 'carmel':
         global names
         if request.method == 'POST':
-            user_input = request.form.get('delete')
-            print(f"Received input: {user_input}")  # DEBUG
-            delete_book(names[int(user_input)][0])
-            names.pop(int(user_input))
+            if 'delete' in request.form.keys():
+                user_input = request.form.get('delete')
+                print(f"Received input: {user_input}")  # DEBUG
+                delete_book(names[int(user_input)][0])
+                names.pop(int(user_input))
+            else:
+                names = load_books()
         return render_template('developer.html', name=names)
 
 @views.route('/developer-mode')

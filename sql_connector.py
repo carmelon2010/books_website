@@ -22,3 +22,5 @@ def delete_book(name):
     global con, cur
     cur.execute("DELETE FROM books WHERE name = %s", [name])
     con.commit()
+
+# add_book(["harry potter and the methods of rationality 7", "https://www.fanfiction.net/s/13806067/1/Harry-Potter-and-the-Secrets-of-the-Stars"])

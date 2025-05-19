@@ -30,6 +30,7 @@ def profile():
                 names.pop(int(user_input))
             else:
                 names = load_books()
+                return redirect(url_for('views.profile', name='carmel'))
         return render_template('developer.html', name=names)
 
 @views.route('/developer-mode')
